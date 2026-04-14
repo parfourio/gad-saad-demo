@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Gad Saad | Professor · Author · Podcaster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #080808;
+      --dark: #111111;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+      --gold: #c8a84b;
+      --gold-light: #dfc070;
+      --gold-pale: rgba(200,168,75,0.1);
+      --white: #f2f0ec;
+      --white-mid: rgba(242,240,236,0.7);
+      --white-dim: rgba(242,240,236,0.35);
+      --text-mid: #a0998e;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── BANNER ── */
+    .outreach-banner {
+      background: var(--gold);
+      color: var(--black);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 500;
+      position: relative;
+      z-index: 1000;
+    }
+
+    .outreach-banner a {
+      display: inline-block;
+      background: var(--black);
+      color: var(--gold-light);
+      padding: 6px 16px;
+      border-radius: 2px;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .outreach-banner a:hover { background: #1a1a1a; }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--dark-border);
+    }
+
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--white-mid);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-links .nav-cta a {
+      color: var(--gold);
+      border: 1px solid rgba(200,168,75,0.4);
+      padding: 7px 16px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .nav-links .nav-cta a:hover { background: var(--gold); color: var(--black); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 1px;
+      transition: transform 0.3s, opacity 0.3s;
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      align-items: center;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      gap: 60px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow-line { width: 36px; height: 1px; background: var(--gold); }
+
+    .hero-eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 900;
+      line-height: 1.0;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .hero h1 .first { display: block; }
+    .hero h1 .last { display: block; color: var(--gold); }
+
+    .hero-title-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+      margin-top: 4px;
+    }
+
+    .hero-title-bar-line { flex: 1; height: 1px; background: var(--dark-border); }
+
+    .hero-title-text {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      white-space: nowrap;
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      color: var(--text-mid);
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--dark-border);
+      color: var(--white-mid);
+      padding: 13px 28px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    /* Hero photo */
+    .hero-photo-wrap {
+      position: relative;
+    }
+
+    .hero-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-radius: 2px;
+      filter: grayscale(15%);
+    }
+
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border: 1px solid rgba(200,168,75,0.15);
+      border-radius: 3px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(8,8,8,0.7), transparent);
+      border-radius: 0 0 2px 2px;
+    }
+
+    /* ── TICKER / MARQUEE ── */
+    .ticker {
+      background: var(--gold);
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      animation: ticker 30s linear infinite;
+      width: max-content;
+    }
+
+    .ticker-item {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 0 32px;
+      white-space: nowrap;
+    }
+
+    .ticker-dot {
+      color: rgba(8,8,8,0.35);
+      padding: 0;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── FEATURED BOOK ── */
+    .featured-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-section::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200,168,75,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .featured-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .featured-cover {
+      position: relative;
+    }
+
+    .featured-cover-mockup {
+      background: linear-gradient(150deg, #1c1c1c, #0d0d0d);
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      padding: 40px 28px;
+      text-align: center;
+      box-shadow: 12px 12px 40px rgba(0,0,0,0.6), -2px -2px 0 rgba(200,168,75,0.08);
+      position: relative;
+    }
+
+    .featured-cover-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .featured-cover-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .featured-cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    .featured-cover-sub {
+      font-size: 11px;
+      color: var(--text-mid);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .featured-cover-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 14px;
+      opacity: 0.6;
+    }
+
+    .featured-cover-author {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-mid);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      background: var(--gold);
+      color: var(--black);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 2px;
+    }
+
+    .featured-content .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-line { width: 28px; height: 1px; background: var(--gold); }
+
+    .eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .featured-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .featured-subtitle {
+      font-size: 15px;
+      color: var(--text-mid);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .featured-desc {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .featured-release {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold-pale);
+      border: 1px solid rgba(200,168,75,0.2);
+      padding: 10px 16px;
+      border-radius: 2px;
+      margin-bottom: 32px;
+    }
+
+    .featured-release-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .featured-release-text {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+    }
+
+    .featured-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* ── BOOKS ── */
+    .books-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+
+    .books-inner { max-width: 1140px; margin: 0 auto; }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .book-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .book-card:hover {
+      border-color: rgba(200,168,75,0.3);
+      transform: translateY(-4px);
+    }
+
+    .book-cover {
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 28px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .book-cover-1 { background: linear-gradient(160deg, #1a1208, #3d2e0a); }
+    .book-cover-2 { background: linear-gradient(160deg, #0d1a15, #0a2e20); }
+    .book-cover-3 { background: linear-gradient(160deg, #1a0808, #2e0a0a); }
+    .book-cover-4 { background: linear-gradient(160deg, #0d0d1a, #0a0a2e); }
+
+    .book-cover::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .book-cover-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .book-cover-sub {
+      font-size: 10px;
+      color: var(--text-mid);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .book-body { padding: 16px 18px 20px; }
+
+    .book-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+
+    .book-sub {
+      font-size: 11px;
+      color: var(--text-mid);
+      font-style: italic;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .book-link {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap 0.2s;
+    }
+
+    .book-link:hover { gap: 8px; }
+
+    /* ── ABOUT ── */
+    .about-section {
+      padding: 100px 24px;
+      background: var(--dark);
+      position: relative;
+    }
+
+    .about-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-left h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 3.5vw, 50px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .about-left h2 em { font-style: italic; color: var(--gold); }
+
+    .about-body {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+
+    .about-creds {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .about-cred {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--white-mid);
+    }
+
+    .about-cred-dot {
+      width: 4px;
+      height: 4px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    .about-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .about-stat-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 3px 3px 0;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 80px;
+    }
+
+    .about-stat-label {
+      font-size: 13px;
+      color: var(--white-mid);
+      line-height: 1.5;
+    }
+
+    .about-stat-label strong {
+      display: block;
+      color: var(--white);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    /* ── PODCAST ── */
+    .podcast-section {
+      padding: 100px 24px;
+      background: var(--black);
+    }
+
+    .podcast-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .podcast-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: end;
+      margin-bottom: 56px;
+    }
+
+    .podcast-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+    }
+
+    .podcast-header p {
+      font-size: 14px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .podcast-platforms {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+    }
+
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      padding: 8px 16px;
+      border-radius: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--white-mid);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .platform-badge:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .podcast-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--dark-border);
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .podcast-stat {
+      background: var(--dark-card);
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .podcast-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .podcast-stat-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+    }
+
+    /* ── SPEAKING ── */
+    .speaking-section {
+      padding: 100px 24px;
+      background: var(--dark);
+    }
+
+    .speaking-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .speaking-right h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .speaking-right p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .speaking-topics {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .speaking-topic {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--dark-border);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--white-mid);
+    }
+
+    .speaking-topic-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .speaking-left-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .speaking-left-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+
+    .speaking-left-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .speaking-left-card p {
+      font-size: 14px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      padding: 100px 24px;
+      background: var(--dark-card);
+      border-top: 1px solid var(--dark-border);
+    }
+
+    .contact-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .contact-inner > p {
+      font-size: 15px;
+      color: var(--white-mid);
+      line-height: 1.75;
+      margin-bottom: 40px;
+      font-weight: 300;
+    }
+
+    .contact-form {
+      background: var(--dark);
+      border: 1px solid var(--dark-border);
+      border-radius: 3px;
+      padding: 36px;
+      text-align: left;
+    }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 2px;
+      padding: 11px 14px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: rgba(200,168,75,0.5); }
+
+    .form-group textarea { resize: vertical; min-height: 90px; }
+    .form-group select option { background: var(--dark); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--black);
+      border: none;
+      padding: 13px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+      margin-top: 4px;
+    }
+
+    .form-submit:hover { background: var(--gold-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--dark-border);
+      padding: 48px 24px 28px;
+    }
+
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--dark-border);
+      margin-bottom: 20px;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .footer-brand span { color: var(--gold); }
+
+    .footer-tagline {
+      font-size: 12px;
+      color: var(--white-dim);
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-social { display: flex; gap: 16px; align-items: center; }
+    .footer-social a { color: var(--white-dim); transition: color 0.2s; }
+    .footer-social a:hover { color: var(--gold-light); }
+    .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-copy { font-size: 11px; color: var(--white-dim); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 60px; }
+      .hero-photo-wrap { display: none; }
+      .featured-inner,
+      .about-inner,
+      .speaking-inner { grid-template-columns: 1fr; gap: 48px; }
+      .books-grid { grid-template-columns: repeat(2, 1fr); }
+      .podcast-header { grid-template-columns: 1fr; gap: 32px; }
+      .podcast-stats { grid-template-columns: 1fr; }
+      .footer-top { flex-direction: column; gap: 24px; }
+    }
+
+    @media (max-width: 640px) {
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        border-top: 1px solid var(--dark-border);
+        flex-direction: column;
+        padding: 16px 24px;
+        gap: 0;
+        box-shadow: 0 12px 32px rgba(0,0,0,0.5);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 0; border-bottom: 1px solid var(--dark-border); font-size: 13px; }
+      .nav-links .nav-cta a { border: none; background: none; color: var(--gold); }
+
+      .books-grid { grid-template-columns: 1fr 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-ctas { flex-direction: column; align-items: flex-start; }
+      .hero-stats { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANNER -->
+  <div class="outreach-banner">
+    <span>Gad — built this for you. Let me know what you think.</span>
+    <a href="mailto:scott.michael.schultz@gmail.com">Reply to Scott →</a>
+  </div>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="top">
+    <div class="nav-inner">
+      <a href="#top" class="nav-logo">Dr. Gad <span>Saad</span></a>
+      <button class="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#podcast">Podcast</a></li>
+        <li><a href="#speaking">Speaking</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li class="nav-cta"><a href="https://www.gadsaad.com/books" target="_blank">Pre-Order Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section style="background: var(--black); border-bottom: 1px solid var(--dark-border);">
+    <div class="hero" id="home">
+      <div>
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span class="hero-eyebrow-text">Professor · Author · Podcaster</span>
+        </div>
+        <h1>
+          <span class="first">Dr. Gad</span>
+          <span class="last">Saad.</span>
+        </h1>
+        <div class="hero-title-bar">
+          <div class="hero-title-bar-line"></div>
+          <span class="hero-title-text">Evolutionary Behavioral Scientist · Concordia University</span>
+          <div class="hero-title-bar-line"></div>
+        </div>
+        <p class="hero-desc">Author, professor, and host of The Saad Truth. Applying evolutionary psychology to understand human nature — and pushing back against the ideas that threaten reason, science, and common sense.</p>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">42M+</div>
+            <div class="hero-stat-label">YouTube Views</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">12M+</div>
+            <div class="hero-stat-label">Podcast Downloads</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">20+</div>
+            <div class="hero-stat-label">Languages (Parasitic Mind)</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">5</div>
+            <div class="hero-stat-label">Books Published</div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#books" class="btn-gold">Pre-Order New Book</a>
+          <a href="#podcast" class="btn-outline">The Saad Truth</a>
+        </div>
+      </div>
+      <div class="hero-photo-wrap">
+        <img class="hero-photo" src="https://static.wixstatic.com/media/e4bf0e_26a629ad9ca54c518b651542484c0311~mv2.jpg" alt="Dr. Gad Saad" />
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span class="ticker-item">New Book — May 12, 2026</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Suicidal Empathy: Dying to be Kind</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Available for Pre-Order Now</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">The Saad Truth Podcast</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">12M+ Downloads</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">The Parasitic Mind — International Bestseller</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">New Book — May 12, 2026</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Suicidal Empathy: Dying to be Kind</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">Available for Pre-Order Now</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">The Saad Truth Podcast</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">12M+ Downloads</span>
+      <span class="ticker-item ticker-dot">✦</span>
+      <span class="ticker-item">The Parasitic Mind — International Bestseller</span>
+      <span class="ticker-item ticker-dot">✦</span>
+    </div>
+  </div>
+
+  <!-- FEATURED BOOK -->
+  <section class="featured-section" id="new-book">
+    <div class="featured-inner">
+      <div class="featured-cover">
+        <div class="featured-cover-mockup">
+          <div class="featured-cover-label">✦ New Release ✦</div>
+          <div class="featured-cover-title">Suicidal Empathy</div>
+          <div class="featured-cover-sub">Dying to be Kind</div>
+          <div class="featured-cover-divider"></div>
+          <div class="featured-cover-author">Dr. Gad Saad</div>
+        </div>
+        <div class="featured-badge">Pre-Order</div>
+      </div>
+      <div class="featured-content">
+        <div class="eyebrow">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Forthcoming Book</span>
+        </div>
+        <h2 class="featured-title">Suicidal Empathy:<br>Dying to be Kind</h2>
+        <p class="featured-subtitle">The dangerous consequences of pathological "empathy" — and what to do about it</p>
+        <p class="featured-desc">In his most provocative work yet, Dr. Saad examines how misguided empathy has become one of the most destructive forces in modern society — undermining truth, enabling harm, and eroding the foundations of reason and civilized discourse.</p>
+        <div class="featured-release">
+          <div class="featured-release-dot"></div>
+          <span class="featured-release-text">Release Date: May 12, 2026 — Pre-Order Available Now</span>
+        </div>
+        <div class="featured-ctas">
+          <a href="https://www.amazon.com" target="_blank" class="btn-gold">Pre-Order on Amazon</a>
+          <a href="https://www.gadsaad.com/books" target="_blank" class="btn-outline">Signed Copy</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKS -->
+  <section class="books-section" id="books">
+    <div class="books-inner">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow" style="margin-bottom:12px">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">Bibliography</span>
+          </div>
+          <h2 class="section-title">Five books.<br>One relentless pursuit of truth.</h2>
+        </div>
+      </div>
+      <div class="books-grid">
+        <div class="book-card">
+          <div class="book-cover book-cover-2">
+            <div class="book-cover-title">The Saad Truth About Happiness</div>
+            <div class="book-cover-sub">8 Secrets for Leading the Good Life</div>
+          </div>
+          <div class="book-body">
+            <div class="book-title">The Saad Truth About Happiness</div>
+            <div class="book-sub">8 Secrets for Leading the Good Life</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-link">Order Now →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-cover book-cover-3">
+            <div class="book-cover-title">The Parasitic Mind</div>
+            <div class="book-cover-sub">How Infectious Ideas Are Killing Common Sense</div>
+          </div>
+          <div class="book-body">
+            <div class="book-title">The Parasitic Mind</div>
+            <div class="book-sub">How Infectious Ideas Are Killing Common Sense — International Bestseller</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-link">Order Now →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-cover book-cover-1">
+            <div class="book-cover-title">The Consuming Instinct</div>
+            <div class="book-cover-sub">What Juicy Burgers, Ferraris, Pornography, and Gift Giving Reveal About Human Nature</div>
+          </div>
+          <div class="book-body">
+            <div class="book-title">The Consuming Instinct</div>
+            <div class="book-sub">Translated into Korean and Turkish</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-link">Order Now →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <div class="book-cover book-cover-4">
+            <div class="book-cover-title">The Evolutionary Bases of Consumption</div>
+          </div>
+          <div class="book-body">
+            <div class="book-title">The Evolutionary Bases of Consumption</div>
+            <div class="book-sub">Academic foundational work</div>
+            <a href="https://www.amazon.com" target="_blank" class="book-link">Order Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-left">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">About</span>
+        </div>
+        <h2>A scientist who refuses to <em>look away.</em></h2>
+        <p class="about-body">Dr. Gad Saad is a scholar at the Declaration of Independence Center for the Study of American Freedom at the University of Mississippi, and Professor of Marketing at Concordia University in Montreal, where he held the Research Chair in Evolutionary Behavioral Sciences and Darwinian Consumption for a decade.</p>
+        <p class="about-body">He has pioneered the application of evolutionary psychology to marketing and consumer behavior, with 75+ scientific papers spanning psychology, medicine, economics, and advertising. He has held visiting professorships at Cornell, Dartmouth, and UC Irvine.</p>
+        <p class="about-body">Beyond academia, Gad is one of the most prominent public intellectuals challenging the ideological conformity and "idea pathogens" eroding reason and science in modern discourse.</p>
+        <div class="about-creds">
+          <div class="about-cred"><div class="about-cred-dot"></div><span>Scholar, Declaration of Independence Center, University of Mississippi</span></div>
+          <div class="about-cred"><div class="about-cred-dot"></div><span>Professor of Marketing, Concordia University, Montreal</span></div>
+          <div class="about-cred"><div class="about-cred-dot"></div><span>Visiting Professor — Cornell, Dartmouth, UC Irvine</span></div>
+          <div class="about-cred"><div class="about-cred-dot"></div><span>Psychology Today columnist — Homo Consumericus</span></div>
+          <div class="about-cred"><div class="about-cred-dot"></div><span>75+ peer-reviewed scientific papers</span></div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="about-stat-card">
+          <div class="about-stat-num">42M+</div>
+          <div class="about-stat-label"><strong>YouTube Views</strong>The Saad Truth channel</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">12M+</div>
+          <div class="about-stat-label"><strong>Podcast Downloads</strong>Since launch in June 2020</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">7.2M+</div>
+          <div class="about-stat-label"><strong>Psychology Today Views</strong>Homo Consumericus blog</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">20+</div>
+          <div class="about-stat-label"><strong>Languages</strong>The Parasitic Mind foreign rights</div>
+        </div>
+        <div class="about-stat-card">
+          <div class="about-stat-num">75+</div>
+          <div class="about-stat-label"><strong>Scientific Papers</strong>Peer-reviewed publications</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PODCAST -->
+  <section class="podcast-section" id="podcast">
+    <div class="podcast-inner">
+      <div class="podcast-header">
+        <div>
+          <div class="eyebrow" style="margin-bottom:16px">
+            <div class="eyebrow-line"></div>
+            <span class="eyebrow-text">The Saad Truth</span>
+          </div>
+          <h2 class="podcast-header" style="font-family:'Playfair Display',serif; font-size:clamp(28px,3vw,42px); font-weight:700; color:var(--white); line-height:1.15;">Ideas that challenge.<br>Conversations that matter.</h2>
+        </div>
+        <div>
+          <p style="font-size:14px; color:var(--white-mid); line-height:1.75; font-weight:300; margin-bottom:20px;">Available on every major platform. New episodes weekly featuring scientists, authors, and public intellectuals on the big ideas of our time.</p>
+          <div class="podcast-platforms">
+            <a href="https://open.spotify.com" target="_blank" class="platform-badge">Spotify</a>
+            <a href="https://www.youtube.com/@TheSaadTruth" target="_blank" class="platform-badge">YouTube</a>
+            <a href="https://podcasts.apple.com" target="_blank" class="platform-badge">Apple Podcasts</a>
+            <a href="https://www.gadsaad.com/podcast" target="_blank" class="platform-badge">All Platforms →</a>
+          </div>
+        </div>
+      </div>
+      <div class="podcast-stats">
+        <div class="podcast-stat">
+          <div class="podcast-stat-num">12M+</div>
+          <div class="podcast-stat-label">Total Downloads</div>
+        </div>
+        <div class="podcast-stat">
+          <div class="podcast-stat-num">42M+</div>
+          <div class="podcast-stat-label">YouTube Views</div>
+        </div>
+        <div class="podcast-stat">
+          <div class="podcast-stat-num">2020</div>
+          <div class="podcast-stat-label">Launched</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section class="speaking-section" id="speaking">
+    <div class="speaking-inner">
+      <div class="speaking-left-card">
+        <h3>Book Gad to speak at your next event.</h3>
+        <p>Dr. Saad is available for keynotes, panel discussions, university lectures, corporate events, and media appearances. His talks combine scientific rigor with wit, provocative ideas, and real-world relevance.</p>
+        <a href="#contact" class="btn-gold">Send a Speaking Inquiry</a>
+      </div>
+      <div class="speaking-right">
+        <div class="eyebrow" style="margin-bottom:16px">
+          <div class="eyebrow-line"></div>
+          <span class="eyebrow-text">Speaking Topics</span>
+        </div>
+        <h2>Keynotes that challenge the room.</h2>
+        <p>Gad speaks to audiences worldwide on the ideas that matter most — and that most people are afraid to say out loud.</p>
+        <div class="speaking-topics">
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Evolutionary psychology and human behavior</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Idea pathogens destroying reason and science</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Free speech, truth, and intellectual courage</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Consumer behavior and Darwinian consumption</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>The science of happiness and the good life</div>
+          <div class="speaking-topic"><div class="speaking-topic-dot"></div>Pathological empathy and its consequences</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="eyebrow" style="justify-content:center; margin-bottom:16px">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">Get in Touch</span>
+        <div class="eyebrow-line"></div>
+      </div>
+      <h2>Start a conversation.</h2>
+      <p>Speaking inquiries, media requests, academic collaborations, or just want to share how his work has impacted you.</p>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="jane@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Reason for Contact</label>
+          <select>
+            <option value="">Select...</option>
+            <option>Speaking / Keynote Inquiry</option>
+            <option>Media / Press Inquiry</option>
+            <option>Academic Collaboration</option>
+            <option>Book / Publishing</option>
+            <option>General Message</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="What's on your mind?"></textarea>
+        </div>
+        <button class="form-submit">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Dr. Gad <span>Saad</span></div>
+          <div class="footer-tagline">Professor · Author · The Saad Truth</div>
+        </div>
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#books">Books</a>
+          <a href="#podcast">Podcast</a>
+          <a href="#speaking">Speaking</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-social">
+          <!-- X/Twitter -->
+          <a href="https://twitter.com/GadSaad" target="_blank" aria-label="X">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://www.youtube.com/@TheSaadTruth" target="_blank" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://www.instagram.com/gadsaad/" target="_blank" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <!-- Facebook -->
+          <a href="https://www.facebook.com/GadSaad" target="_blank" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2024 Dr. Gad Saad. All rights reserved.</p>
+        <p class="footer-copy" style="font-style:italic;">The Saad Truth with Dr. Saad</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

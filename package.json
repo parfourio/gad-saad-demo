@@ -1,0 +1,11 @@
+{
+  "name": "gad-saad-demo",
+  "version": "1.0.0",
+  "description": "Dr. Gad Saad concept demo",
+  "scripts": {
+    "start": "npx serve . -p $PORT"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
